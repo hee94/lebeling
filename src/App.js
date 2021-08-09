@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import Header from './components/header';
+import Nav from './components/nav';
+import Board from './components/board';
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = ({photos}) => {
+  const [photoData, setPhotoData] = useState(null);
+  const [click , setClick] = useState(false);
+   
+  useEffect(()=>{
+    photos.photodata()
+    .then(data =>setPhotoData(data[94].url))
+  },[photos]);
+ const onclick =()=>{
+   setClick(true);
+ }
+ const onreset=(blen)=>{
+   blen&& setClick(false)
+ }
+  return(
+    <main>
+       <Header />
+       <section>
+        <Nav createClick={onclick} />
+        <Board photo={photoData} click={click} onreset={onreset}/>
+       </section>
+    </main>
+  
+  )
 }
 
 export default App;

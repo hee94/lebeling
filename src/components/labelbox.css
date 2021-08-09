@@ -1,0 +1,10 @@
+.labelwrap {
+  position: absolute;
+  border: 3px solid #5668d9;
+  background-color: rgba(86, 104, 217, 0.2);
+
+  z-index: 111;
+}
+label {
+  color: #fff;
+}

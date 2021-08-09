@@ -1,0 +1,20 @@
+.navtool {
+  width: 56px;
+  height: 100%;
+  background: #fcfcfc 0% 0% no-repeat padding-box;
+  border: 1px solid #ebedf2;
+  opacity: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0.7rem 0 0 0;
+  text-align: center;
+}
+.icon {
+  transition: all 0.6s;
+  cursor: pointer;
+}
+.icon:hover {
+  border-radius: 5px;
+  background: #ebedf2;
+  opacity: 1;
+}
