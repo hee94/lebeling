@@ -9,25 +9,78 @@ label {
 .anchor {
   position: absolute;
   border: 3px solid #5668d9;
-  background-color: rgba(217, 182, 86, 0.2);
+  background-color: rgba(86, 104, 217, 0.2);
 }
 .anchor::before {
-  display: block;
   content: "";
-  background-color: #fff;
-  width: 5%;
-  height: 5%;
-  position: absolute;
-  top: -5px;
-  left: -5px;
+  display : block;
+  width: 4px;
+  height: 32px;
+  background-color: #5668d9;
+  position:absolute;
+  left:50%;
+  bottom:100%;
+  transform: translateX(-50%);
 }
-.anchor::after {
-  display: block;
-  content: "";
-  background-color: #fff;
-  width: 5%;
-  height: 5%;
+
+.resizers{
+  width: 100%;
+  height: 100%;
+}
+.resizers .resizer{
+  width: 14px;
+  height: 14px;
+  background: white;
+  border: 3px solid #5668d9;
   position: absolute;
+}
+.resizers .resizer.top-left {
+  left: -5px;
   top: -5px;
+  cursor: nwse-resize; /*resizer cursor*/
+}
+.resizers .resizer.top-right {
   right: -5px;
+  top: -5px;
+  cursor: nesw-resize;
+}
+.resizers .resizer.bottom-left {
+  left: -5px;
+  bottom: -5px;
+  cursor: nesw-resize;
+}
+.resizers .resizer.bottom-right {
+  right: -5px;
+  bottom: -5px;
+  cursor: nwse-resize;
+}
+.resizers .left {
+  left: -8px;
+  bottom: 50%;
+  transform: translateY(50%);
+  cursor: nesw-resize;
+}
+.resizers .right {
+  right: -8px;
+  bottom: 50%;
+  transform: translateY(50%);
+  cursor: nwse-resize;
+}
+.resizers .top {
+  right: 50%;
+  top: -8PX;
+  transform: translateX(50%);
+  cursor: nesw-resize;
+}
+.resizers .bottom {
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  cursor: nesw-resize;
+}
+.rotate {
+  transform: translateX(-50%);
+  border-radius: 50%;
+  left: 50%;
+  top: -35px;
 }

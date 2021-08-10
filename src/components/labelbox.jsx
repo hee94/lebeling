@@ -27,14 +27,26 @@ const LabelBox = ({label,select,onanchor}) => {
     
    }
    const onMove=(e)=>{
- 
     setMoveX(e.clientX);
     setMoveY(e.clientY);
    }
-   console.log(moveX, moveY)
     return(
         <div onClick={onSelect} onDragEnd={onMove} className={anchor ? 'anchor' : 'labelwrap'} 
         style={style}>
+        {
+            anchor &&  <div className='resizers'>
+            <span className='resizer top-left'></span>
+            <span className='resizer top-right'></span>
+            <span className='resizer bottom-left'></span>
+            <span className='resizer bottom-right'></span>
+            <span className='resizer left'></span>
+            <span className='resizer right'></span>
+            <span className='resizer top'></span>
+            <span className='resizer bottom'></span>
+            <span className='resizer rotate'></span>
+            
+        </div>
+        }
         </div>
     )
   
