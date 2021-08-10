@@ -6,24 +6,32 @@ import './App.css'
 
 const App = ({photos}) => {
   const [photoData, setPhotoData] = useState(null);
-  const [click , setClick] = useState(false);
+  const [create , setCreate] = useState(false);
+  const [select, setSelect] = useState(false);
    
   useEffect(()=>{
     photos.photodata()
-    .then(data =>setPhotoData(data[94].url))
+    .then(data =>setPhotoData(data[55].url))
   },[photos]);
+
  const onclick =()=>{
-   setClick(true);
+   if(!create){
+    setCreate(true);
+   }else setCreate(false);
  }
- const onreset=(blen)=>{
-   blen&& setClick(false)
- }
+ const onselect =()=>{
+   if(!select){
+    setSelect(true);
+ }else setSelect(false);
+
+   }
+  
   return(
     <main>
        <Header />
        <section>
-        <Nav createClick={onclick} />
-        <Board photo={photoData} click={click} onreset={onreset}/>
+        <Nav createClick={onclick} onselect={onselect} />
+        <Board photo={photoData} click={create} onreset={onreset} select={select}/>
        </section>
     </main>
   

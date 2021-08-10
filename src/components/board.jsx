@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import './board.css';
 import LabelBox from './labelbox';
 
-const Board = ({photo, click,onreset}) => {
+const Board = ({photo, click,  select}) => {
     const [startX, setStartX] = useState('');
     const [startY, setStartY] = useState('');
-    const [endX, setEndX] = useState('');
-    const [endY, setEndY] = useState('');
-    const [label, setLabel] = useState([])
+    const [label, setLabel] = useState([]);
+    const [selecLabel, setSelecLabe] = useState([]);
  
    const dragStart =(e)=>{
     if(click){
@@ -17,25 +16,36 @@ const Board = ({photo, click,onreset}) => {
     }
     const dragEnd=(e)=>{
         if(click){
-            setEndX(e.clientX);
-            setEndY( e.clientY);
-            onreset(true);
             setLabel([...label,{id : Date.now(), top : startY, left:startX, width : e.clientX, height : e.clientY}])
         } 
     }
     
-    console.log(endY, endX);
-   
+    const onselect=(thislabel, onoff)=>{
+        if(select){
+            if(!onoff){
+                setSelecLabe([...selecLabel, thislabel]);
+            }else {
+                setSelecLabe(selecLabel.filter(el => el.id !== thislabel.id));
+            }
+        }
+    }
+   React.useEffect(()=>{
+   window.addEventListener('keydown',(e)=>{
+    if(e.code === "Backspace" || e.code === "Delete"){
+         const del = label.filter(el => !selecLabel.includes(el));
+       setLabel(del);
+       setSelecLabe(del);
+    }
+    })
+   })
+  
     return(
-        <article onDragStart={dragStart} onDragEnd={dragEnd} >
-           
-           {
-             //  endX && <LabelBox left={startX} top={startY} />
-             endX &&label.map(el => (<LabelBox left={el.left} top={el.top} key={el.id}
-                                     width={el.width} height={el.height}   />)) 
-                                       
+        <article onDragStart={dragStart} onDragEnd={dragEnd}>
+            {
+             label.map(el => (<LabelBox  
+                key={el.id} label={el} select={onselect} onanchor={select}  />))                     //     
            }
-            <img src={photo} alt="배경사진"  width="100%" height="976px"/>
+            <img src={photo} alt="배경사진"  width="100%" height="100%"/>
         </article>
        
     )

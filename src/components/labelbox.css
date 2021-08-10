@@ -2,9 +2,32 @@
   position: absolute;
   border: 3px solid #5668d9;
   background-color: rgba(86, 104, 217, 0.2);
-
-  z-index: 111;
 }
 label {
   color: #fff;
+}
+.anchor {
+  position: absolute;
+  border: 3px solid #5668d9;
+  background-color: rgba(217, 182, 86, 0.2);
+}
+.anchor::before {
+  display: block;
+  content: "";
+  background-color: #fff;
+  width: 5%;
+  height: 5%;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+}
+.anchor::after {
+  display: block;
+  content: "";
+  background-color: #fff;
+  width: 5%;
+  height: 5%;
+  position: absolute;
+  top: -5px;
+  right: -5px;
 }
