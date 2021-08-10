@@ -32,9 +32,9 @@ const Board = ({photo, click,  select}) => {
    React.useEffect(()=>{
    window.addEventListener('keydown',(e)=>{
     if(e.code === "Backspace" || e.code === "Delete"){
-         const del = label.filter(el => !selecLabel.includes(el));
-       setLabel(del);
-       setSelecLabe(del);
+        const del = label.filter(el => !selecLabel.includes(el));
+        setLabel(del);
+        setSelecLabe([]);
     }
     })
    })

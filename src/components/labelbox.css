@@ -9,7 +9,7 @@ label {
 .anchor {
   position: absolute;
   border: 3px solid #5668d9;
-  background-color: rgba(86, 104, 217, 0.2);
+  bakground-color: rgba(86, 104, 217, 0.2);
 }
 .anchor::before {
   content: "";
