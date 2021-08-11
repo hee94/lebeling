@@ -7,7 +7,7 @@ const Board = ({photo, click,  select}) => {
     const [startY, setStartY] = useState('');
     const [label, setLabel] = useState([]);
     const [selecLabel, setSelecLabe] = useState([]);
- 
+
    const dragStart =(e)=>{
     if(click){
        setStartX(e.clientX);
@@ -29,8 +29,7 @@ const Board = ({photo, click,  select}) => {
             }
         };
     };
-
-
+   
    React.useEffect(()=>{
    window.addEventListener('keydown',(e)=>{
     if(e.code === "Backspace" || e.code === "Delete"){
@@ -44,8 +43,8 @@ const Board = ({photo, click,  select}) => {
     return(
         <article onDragStart={dragStart} onDragEnd={dragEnd}>
             {
-             label.map(el => (<LabelBox  
-                key={el.id} label={el} select={onselect} onanchor={select}  />))                     //     
+             label.map(el => (<LabelBox   key={el.id} label={el} 
+                select={onselect} onanchor={select}  />))                     //     
            }
             <img src={photo} alt="배경사진"  width="100%" height="100%"/>
         </article>

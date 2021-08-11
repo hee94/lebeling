@@ -16,7 +16,6 @@ const LabelBox = ({label,select,onanchor}) => {
    
    const onSelect =()=>{
     select(label ,anchor);
-    console.log(anchor)
     if(onanchor){
         if(!anchor){
             setAnchor(true)
@@ -30,6 +29,8 @@ const LabelBox = ({label,select,onanchor}) => {
         setMoveY(e.clientY);
        }
    };
+   
+
     return(
         <div onClick={onSelect} onDragEnd={onMove} className={anchor ? 'anchor' : 'labelwrap'} 
         style={style}>
@@ -45,7 +46,7 @@ const LabelBox = ({label,select,onanchor}) => {
             <span className='resizer bottom'></span>
             <span className='resizer rotate'></span>   
             </div>
-        };
+        }
         </div>
     );
     }
