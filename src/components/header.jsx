@@ -5,7 +5,7 @@ const Header = (props) => {
    return(
     <header>
     <span className="title">Dataset Label</span>
-</header>
+   </header>
    )
 }
 

@@ -11,7 +11,7 @@ const App = ({photos}) => {
    
   useEffect(()=>{
     photos.photodata()
-    .then(data =>setPhotoData(data[55].url))
+    .then(data =>setPhotoData(data[1].url))
   },[photos]);
 
  const onclick =()=>{
@@ -23,8 +23,7 @@ const App = ({photos}) => {
    if(!select){
     setSelect(true);
  }else setSelect(false);
-
-   }
+   };
   
   return(
     <main>
@@ -34,7 +33,6 @@ const App = ({photos}) => {
         <Board photo={photoData} click={create} onreset={onreset} select={select}/>
        </section>
     </main>
-  
   )
 }
 

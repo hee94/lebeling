@@ -4,10 +4,10 @@ import './nav.css';
 const Nav = ({createClick,onselect}) => {
     const onCreate=()=>{
         createClick();
-    }
+    };
     const onSelect =()=>{
         onselect()
-    }
+    };
     return(
         <ul className="navtool">
             <li onClick={onSelect}>

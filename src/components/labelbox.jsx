@@ -4,7 +4,7 @@ import './labelbox.css';
 const LabelBox = ({label,select,onanchor}) => {
    const [anchor, setAnchor] = useState(false);
    const [moveX, setMoveX ] =useState('');
-   const [moveY, setMoveY] = useState('')
+   const [moveY, setMoveY] = useState('');
 
     const { top, left, width, height } = label;
     const style = {
@@ -12,7 +12,7 @@ const LabelBox = ({label,select,onanchor}) => {
         left : moveX? moveX : left,
         width : Math.max(left-width, width- left) ,
         height:  Math.max(top-height, height- top),
-    }
+    };
    
    const onSelect =()=>{
     select(label ,anchor);
@@ -23,13 +23,13 @@ const LabelBox = ({label,select,onanchor}) => {
         }else {
             setAnchor(false)
         }
-    }
-    
-   }
+    }};
    const onMove=(e)=>{
-    setMoveX(e.clientX);
-    setMoveY(e.clientY);
-   }
+       if(anchor){
+        setMoveX(e.clientX);
+        setMoveY(e.clientY);
+       }
+   };
     return(
         <div onClick={onSelect} onDragEnd={onMove} className={anchor ? 'anchor' : 'labelwrap'} 
         style={style}>
@@ -43,13 +43,11 @@ const LabelBox = ({label,select,onanchor}) => {
             <span className='resizer right'></span>
             <span className='resizer top'></span>
             <span className='resizer bottom'></span>
-            <span className='resizer rotate'></span>
-            
+            <span className='resizer rotate'></span>   
+            </div>
+        };
         </div>
-        }
-        </div>
-    )
-  
+    );
     }
     
 

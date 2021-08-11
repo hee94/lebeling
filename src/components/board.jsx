@@ -18,7 +18,7 @@ const Board = ({photo, click,  select}) => {
         if(click){
             setLabel([...label,{id : Date.now(), top : startY, left:startX, width : e.clientX, height : e.clientY}])
         } 
-    }
+    };
     
     const onselect=(thislabel, onoff)=>{
         if(select){
@@ -27,8 +27,10 @@ const Board = ({photo, click,  select}) => {
             }else {
                 setSelecLabe(selecLabel.filter(el => el.id !== thislabel.id));
             }
-        }
-    }
+        };
+    };
+
+
    React.useEffect(()=>{
    window.addEventListener('keydown',(e)=>{
     if(e.code === "Backspace" || e.code === "Delete"){
@@ -36,9 +38,9 @@ const Board = ({photo, click,  select}) => {
         setLabel(del);
         setSelecLabe([]);
     }
-    })
-   })
-  
+    });
+   });
+
     return(
         <article onDragStart={dragStart} onDragEnd={dragEnd}>
             {
@@ -48,7 +50,7 @@ const Board = ({photo, click,  select}) => {
             <img src={photo} alt="배경사진"  width="100%" height="100%"/>
         </article>
        
-    )
+    );
 };
 
 export default Board;
